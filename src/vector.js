@@ -12,11 +12,17 @@ Sylvester.Vector.Random = function(n) {
   return Sylvester.Vector.create(elements);
 };
 
-Sylvester.Vector.Zero = function(n) {
+Sylvester.Vector.Init = function(n, v) {
   var elements = [];
-  while (n--) { elements.push(0); }
+  while (n--) { elements.push(v); }
   return Sylvester.Vector.create(elements);
 };
+Sylvester.Vector.Zero = function(n) { 
+  Sylvester.Vector.Init(n, 0);
+}
+Sylvester.Vector.One = function(n) { 
+  Sylvester.Vector.Init(n, 1);
+}
 
 Sylvester.Vector.prototype = {
   e: function(i) {
