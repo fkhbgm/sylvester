@@ -79,16 +79,23 @@ Sylvester.Matrix.Random = function(n, m) {
   );
 };
 
-Sylvester.Matrix.Zero = function(n, m) {
+Sylvester.Matrix.Init = function(n, m, v) {
   var els = [], i = n, j;
   while (i--) { j = m;
     els[i] = [];
     while (j--) {
-      els[i][j] = 0;
+      els[i][j] = v;
     }
   }
   return Sylvester.Matrix.create(els);
 };
+Sylvester.Matrix.Zero = function(n,m) {
+  Syvester.Matrix.Init(n,m,0);
+}
+Sylvester.Matrix.One = function(n,m) {
+  Syvester.Matrix.Init(n,m,1);
+}
+
 
 Sylvester.Matrix.prototype = {
   e: function(i,j) {
